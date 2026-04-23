@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -17,9 +17,10 @@
 
     <nav>
       <div class="nav-container">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="menu.html">Menu</a>
         <a href="catering.html">Catering</a>
+        <a href="trays.html">Tray Sizes</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -43,17 +44,25 @@
         <section class="hours-section">
           <h3>Our Hours</h3>
           <hr />
-          <p>We're open for orders on the following days:</p>
-          <ul class="hours-list">
-            <li><span class="open-day">Friday:</span> 12:00 PM – 7:00 PM</li>
-            <li><span class="open-day">Saturday:</span> 12:00 PM – 7:00 PM</li>
-          </ul>
           <p>
+            <!-- im too lazy just gonna add double br lmao -->
+            Zia's Place now accepts orders throughout the week for catering,
+            family meals, special occasions, and business lunches or corporate
+            events.
+            <br />
+            <br />
+            All orders are prepared fresh and made to order, so we kindly ask
+            for advance notice.
+            <br />
+            <br />
+            (Availability may vary based on schedule.)
+          </p>
+          <!-- <p>
             All other days
             <strong
               >family / catering orders available with 48 hour notice</strong
             >. Please contact us in advance to book.
-          </p>
+          </p> -->
           <p>
             <span style="color: #ff6b6b; font-weight: bold">
               <span
@@ -85,7 +94,7 @@
             </span>
           </p>
           <p>$4.00 local delivery fee</p>
-          <p>Free Delivery for orders over $100</p>
+          <p>Free Delivery for orders over $100 (Local & Surrounding Areas)</p>
         </section>
 
         <br />
@@ -105,6 +114,15 @@
                 >(289) 651-3111</a
               >
             </p>
+
+            <p>
+              <strong>📞 Text:</strong><br /><a
+                href="tel:+6475224683"
+                style="font-size: 1.1em"
+                >(647)-522-4683</a
+              >
+            </p>
+
             <p>
               <strong>📧 Email:</strong><br /><a
                 href="mailto:ziasplace2025@gmail.com"
@@ -275,7 +293,7 @@
             (error) => {
               showPopup("Oops! Something went wrong. Please try again.");
               console.error("EmailJS error:", error);
-            }
+            },
           );
         });
       });

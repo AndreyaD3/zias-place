@@ -207,7 +207,9 @@ main {
 main {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 main.visible {
@@ -330,7 +332,9 @@ nav a {
   color: #ccc;
   border-bottom: 4px solid transparent;
   text-align: center;
-  transition: color 0.3s ease, background-color 0.3s ease,
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
     border-bottom-color 0.3s ease;
   letter-spacing: 0.05em;
   user-select: none;
@@ -927,7 +931,9 @@ textarea:focus {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, bottom 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    bottom 0.3s ease;
 
   /* Flexbox centering */
   display: flex;
@@ -1127,6 +1133,16 @@ textarea:focus {
   max-width: 90%;
   max-height: 90%;
   transform: translate(-50%, -50%) scale(1.5);
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.enlargedTable {
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  transform: scale(1.6);
   z-index: 1000;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }

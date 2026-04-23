@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catering - Zia's Place</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+</html>
+
+<body class="catering-page">
+  <header>
+    <div class="container">
+      <img src="images/logo.png" alt="Zia's Place Logo" class="logo" />
+      <h1>From my kitchen to your table-with love.</h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="active">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="catering.html">Catering</a>
+      <a href="trays.html">Tray Sizes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+<div class="page-wrapper">
+    <main>
+          <div class="catering-flex">
+    <div class="catering-text">
+	<div class="catering-wrapper">
+  <div class="menu-section">
+      <h2 style="margin-left: 33%;">Tray Size Table</h2>
+	  <hr>
+    <!-- <h4>s = small, m = medium</h4> -->
+  <div class="menu-header">
+
+
+    <img src="images/tray_sizes.jpg" class="trayTable" width="500px" style="margin-left: 25%;" >
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </main>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <button id="backToTop" title="Back to top">&#8679;</button>
+
+<footer>
+  <div class="footer-inline">
+    <img src="images/phone.png" alt="phone" />
+    <p><a href="tel:+12896513111">(289) 651-3111</a></p>
+    <img src="images/email.png" alt="email" />
+    <p><a href="contact.html">ziasplace2025@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Highlight the active nav link based on current path
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+        // Hide divider to the left and right of the active link
+        if (link.previousElementSibling) {
+          link.previousElementSibling.classList.add('no-divider-right');
+        }
+        if (link.nextElementSibling) {
+          link.classList.add('no-divider-right');
+        }
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Animate main content appearance
+    const main = document.querySelector('main');
+    if (main) {
+      main.classList.remove('visible');
+      void main.offsetWidth;
+      setTimeout(() => {
+        main.classList.add('visible');
+      }, 10);
+    }
+
+    // Back to top button logic
+    const backToTopButton = document.getElementById("backToTop");
+    const footer = document.querySelector("footer");
+
+    function positionBackToTop() {
+      if (!backToTopButton || !footer) return;
+      const footerRect = footer.getBoundingClientRect();
+      if (footerRect.top < window.innerHeight) {
+        const overlap = window.innerHeight - footerRect.top;
+        backToTopButton.style.bottom = `${30 + overlap}px`;
+      } else {
+        backToTopButton.style.bottom = "30px";
+      }
+    }
+
+    if (backToTopButton && footer) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          backToTopButton.classList.add("show");
+        } else {
+          backToTopButton.classList.remove("show");
+        }
+        positionBackToTop();
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("resize", positionBackToTop);
+
+      // Initial positioning
+      positionBackToTop();
+    }
+  });
+
+
+   const images = document.querySelectorAll(".trayTable");
+      let currentOverlay = null;
+      let currentlyEnlarged = null;
+
+      images.forEach((image) => {
+        image.addEventListener("click", () => {
+          const isEnlarged = image.classList.contains("enlargedTable");
+
+          if (currentlyEnlarged) {
+            currentlyEnlarged.classList.remove("enlargedTable");
+            currentlyEnlarged = null;
+          }
+          if (currentOverlay) {
+            currentOverlay.remove();
+            currentOverlay = null;
+          }
+
+          if (!isEnlarged) {
+            image.classList.add("enlargedTable");
+            currentlyEnlarged = image;
+
+            currentOverlay = document.createElement("div");
+            currentOverlay.className = "overlay";
+            document.body.appendChild(currentOverlay);
+
+            currentOverlay.addEventListener("click", () => {
+              image.classList.remove("enlargedTable");
+              currentOverlay.remove();
+              currentlyEnlarged = null;
+              currentOverlay = null;
+            });
+          }
+        });
+      });
+</script>
+
+
+</body>
+</html>
+
+</body>
+
+
