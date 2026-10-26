@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catering - Zia's Place</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+</html>
+
+<body class="catering-page">
+  <header>
+    <div class="container">
+      <img src="images/logo.png" alt="Zia's Place Logo" class="logo" />
+      <h1>From my kitchen to your table-with love.</h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="catering.html">Catering</a>
+      <a href="trays.html" class="active">Tray Sizes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="frozen_packs.html" style="margin-left: 10px;">Frozen Packs</a>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <main>
+            <!-- <h2 style="text-align: center;">Frozen Packs</h2>
+      <div class="menu-header"> </div> -->
+
+
+      <div class="image-wrapper">
+          <img src="images/frozen_packs.png" class="trayTable">
+      </div>
+
+            <div class="menu-header"> </div>
+
+
+            <h2 style="text-align: center;">Pricing</h2>
+
+
+  <div class="menu-header">
+
+    <div class="dish-name" style="color: lightcoral;">Breaded Cutlets</div>
+    <div class="size-column">
+      <span class="size-label">Uncooked</span>
+      <span class="size-desc"></span>
+    </div>
+    <div class="size-column">
+      <span class="size-label">Cooked</span>
+      <span class="size-desc"></span>
+    </div>
+  </div>
+
+  <!-- Price rows -->
+  <div class="menu-row">
+    <div class="dish-name">Veal (Min. Order: 5)</div>
+    <div class="dish-price">$6.00</div>
+    <div class="dish-price">$6.50</div>
+  </div>
+
+  <div class="menu-row">
+    <div class="dish-name">Chicken (Min. Order: 5)</div>
+    <div class="dish-price">$5.00</div>
+    <div class="dish-price">$5.50</div>
+  </div>
+
+<br>
+
+  <div class="menu-header">
+      <div class="dish-name" style="color: lightcoral;">Other Items</div>
+  </div>
+
+  <div class="menu-row">
+    <div class="dish-name">Rice Balls With Mozzarella (Min. Order: 10)</div>
+    <div class="dish-price">$1.25</div>
+    <div class="dish-price">$1.00 (25+)</div>
+  </div>
+
+  <div class="menu-row">
+    <div class="dish-name">Homemade Lasagna (Uncooked)</div>
+    <div class="dish-price">$50</div>
+        <div class="dish-price">(Half Tray)</div>
+  </div>
+
+      <div class="menu-row">
+    <div class="dish-name">Meat Balls (Uncooked) (Min. Order: 10)</div>
+    <div class="dish-price">$1.85</div>
+        <div class="dish-price"></div>
+  </div>
+
+
+</div> 
+
+
+
+  <!-- <div class="menu-row">
+    <div class="dish-name">Veggie (Ricotta & Spinach)</div>
+    <div class="dish-price">$60</div>
+    <div class="dish-price">$100</div>
+    </div>
+	
+	  <div class="menu-row">
+    <div class="dish-name">Eggplant (Baked not fried)</div>
+    <div class="dish-price">$55</div>
+    <div class="dish-price">$95</div>
+    </div>
+
+    	  <div class="menu-row">
+    <div class="dish-name">Pasta Shells (Ricotta & Spinach) Min. 10</div>
+    <div class="dish-price">$2.50 ea. <br>(15 or less)</div>
+    <div class="dish-price">$2.25 ea. <br> (16 or more)</div> 
+    </div> -->
+
+  </div>
+
+
+<div class="price-notice">
+  **All prices are subject to change without notice**<br />
+  **Taxes NOT included in prices**<br />
+  **Please note: Our kitchen is not gluten-free or peanut-free.**
+
+
+</main>
+</div>
+
+
+  <button id="backToTop" title="Back to top">&#8679;</button>
+
+  <footer>
+    <div class="footer-inline">
+      <img src="images/phone.png" alt="phone" />
+      <p><a href="tel:+12896513111">(289) 651-3111</a></p>
+      <img src="images/email.png" alt="email" />
+      <p><a href="contact.html">ziasplace2025@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Highlight the active nav link based on current path
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const links = document.querySelectorAll('nav a');
+      links.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+          // Hide divider to the left and right of the active link
+          if (link.previousElementSibling) {
+            link.previousElementSibling.classList.add('no-divider-right');
+          }
+          if (link.nextElementSibling) {
+            link.classList.add('no-divider-right');
+          }
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      // Animate main content appearance
+      const main = document.querySelector('main');
+      if (main) {
+        main.classList.remove('visible');
+        void main.offsetWidth;
+        setTimeout(() => {
+          main.classList.add('visible');
+        }, 10);
+      }
+
+      // Back to top button logic
+      const backToTopButton = document.getElementById("backToTop");
+      const footer = document.querySelector("footer");
+
+      function positionBackToTop() {
+        if (!backToTopButton || !footer) return;
+        const footerRect = footer.getBoundingClientRect();
+        if (footerRect.top < window.innerHeight) {
+          const overlap = window.innerHeight - footerRect.top;
+          backToTopButton.style.bottom = `${30 + overlap}px`;
+        } else {
+          backToTopButton.style.bottom = "30px";
+        }
+      }
+
+      if (backToTopButton && footer) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 100) {
+            backToTopButton.classList.add("show");
+          } else {
+            backToTopButton.classList.remove("show");
+          }
+          positionBackToTop();
+        });
+
+        backToTopButton.addEventListener("click", () => {
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("resize", positionBackToTop);
+
+        // Initial positioning
+        positionBackToTop();
+      }
+    });
+
+
+    const images = document.querySelectorAll(".trayTable");
+    let currentOverlay = null;
+    let currentlyEnlarged = null;
+
+    images.forEach((image) => {
+      image.addEventListener("click", () => {
+        const isEnlarged = image.classList.contains("enlargedTable");
+
+        if (currentlyEnlarged) {
+          currentlyEnlarged.classList.remove("enlargedTable");
+          currentlyEnlarged = null;
+        }
+        if (currentOverlay) {
+          currentOverlay.remove();
+          currentOverlay = null;
+        }
+
+        if (!isEnlarged) {
+          image.classList.add("enlargedTable");
+          currentlyEnlarged = image;
+
+          currentOverlay = document.createElement("div");
+          currentOverlay.className = "overlay";
+          document.body.appendChild(currentOverlay);
+
+          currentOverlay.addEventListener("click", () => {
+            image.classList.remove("enlargedTable");
+            currentOverlay.remove();
+            currentlyEnlarged = null;
+            currentOverlay = null;
+          });
+        }
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
+
+</body>
