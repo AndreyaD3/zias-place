@@ -177,7 +177,8 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // Highlight active nav link
-        const path = window.location.pathname.split("/").pop();
+        let path = window.location.pathname.split("/").pop() || "index.html";
+        if (!path.endsWith(".html")) path += ".html"; // GitHub Pages also serves /menu
         const links = document.querySelectorAll("nav a");
         links.forEach((link) => {
           if (

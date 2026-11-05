@@ -86,7 +86,8 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Highlight the active nav link based on current path
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      let currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    if (!currentPage.endsWith('.html')) currentPage += '.html'; // GitHub Pages also serves /menu
       const links = document.querySelectorAll('nav a');
       links.forEach(link => {
         if (link.getAttribute('href') === currentPage) {

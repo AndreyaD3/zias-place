@@ -17,8 +17,8 @@
 
     <nav>
       <div class="nav-container">
-        <a href="index.html" class="active">Home</a>
-        <a href="menu.html">Menu</a>
+        <a href="index.html">Home</a>
+        <a href="menu.html" class="active">Menu</a>
         <a href="catering.html">Catering</a>
         <a href="trays.html">Tray Sizes</a>
         <a href="about.html">About</a>
@@ -114,7 +114,8 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // Navigation active link
-        const path = window.location.pathname.split("/").pop();
+        let path = window.location.pathname.split("/").pop() || "index.html";
+        if (!path.endsWith(".html")) path += ".html"; // GitHub Pages also serves /menu
         const links = document.querySelectorAll("nav a");
         links.forEach((link) => {
           if (

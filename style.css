@@ -1175,3 +1175,30 @@ textarea:focus {
   display: flex;
   justify-content: center;
 }
+
+/* ------------------------------------------- MOBILE NAV FIX -------------------------------------------*/
+/* 7 links don't fit on one phone row: wrap into 4 + 3 instead of overflowing off both edges */
+@media (max-width: 600px) {
+  .nav-container {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  nav a {
+    flex: 1 0 25%;
+    padding: 10px 4px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    margin-left: 0 !important; /* beats the inline margin on "Frozen Packs" */
+  }
+
+  /* no divider at the end of each row */
+  nav a:nth-child(4)::after {
+    display: none;
+  }
+
+  /* fixed 300px row pushed the contact page sideways on small phones */
+  .social-icons {
+    max-width: 100%;
+  }
+}

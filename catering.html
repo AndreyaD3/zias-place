@@ -18,10 +18,10 @@
 
     <nav>
       <div class="nav-container">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
-        <a href="catering.html">Catering</a>
-        <a href="trays.html" class="active">Tray Sizes</a>
+        <a href="catering.html" class="active">Catering</a>
+        <a href="trays.html">Tray Sizes</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="frozen_packs.html" style="margin-left: 10px;">Frozen Packs</a>
@@ -404,7 +404,8 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Highlight the active nav link based on current path
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    let currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    if (!currentPage.endsWith('.html')) currentPage += '.html'; // GitHub Pages also serves /menu
     const links = document.querySelectorAll('nav a');
     links.forEach(link => {
       if (link.getAttribute('href') === currentPage) {

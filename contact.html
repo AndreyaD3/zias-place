@@ -17,12 +17,12 @@
 
     <nav>
       <div class="nav-container">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
         <a href="catering.html">Catering</a>
         <a href="trays.html">Tray Sizes</a>
         <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="active">Contact</a>
         <a href="frozen_packs.html" style="margin-left: 10px;">Frozen Packs</a>
       </div>
     </nav>
@@ -223,7 +223,8 @@
         }
 
         // Highlight active nav link and hide appropriate dividers
-        const path = window.location.pathname.split("/").pop();
+        let path = window.location.pathname.split("/").pop() || "index.html";
+        if (!path.endsWith(".html")) path += ".html"; // GitHub Pages also serves /menu
         document.querySelectorAll("nav a").forEach((link) => {
           const href = link.getAttribute("href");
           if (
